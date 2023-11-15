@@ -1,0 +1,49 @@
+body
+{
+    background-color: #E4D4C8;
+}
+
+table
+{
+    border: 2px solid rgb(73, 73, 73);
+    background-color: bisque;
+    border-radius: 3px;
+}
+
+td.mainText 
+{
+    font-family: Helvetica;
+    text-align: center;
+    font-size: 17px;
+}
+
+td
+{
+    font-family: Helvetica;
+    font-size: 14px;
+    padding: 5px 5px;
+}
+
+select
+{
+    border-radius: 5px;
+    background-color: rgb(255, 252, 249);
+}
+
+input
+{
+    font-family: Helvetica;
+    font-size: 14px;
+}
+
+.submitText
+{
+    text-align: center;
+    background-color: rgb(255, 252, 249);
+    width: 200px;
+}
+
+.buttonCenter
+{
+    text-align: center;
+}

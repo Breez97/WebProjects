@@ -1,0 +1,34 @@
+h2
+{
+    font-family: Arial;
+}
+table
+{
+    border: 2px solid rgb(73, 73, 73);
+    background-color: bisque;
+    border-radius: 5px;
+}
+.mainText
+{
+    text-align: left;
+    font-family: Arial;
+    font-size: 16px;
+    margin: 10px;
+}
+.submitText
+{
+    text-align: center;
+    margin-top: 10px;
+    background-color: rgb(253, 222, 182);
+}
+.buttonCenter
+{
+    text-align: center;
+}
+.textAnswer
+{
+    text-align: center;
+    font-family: Arial;
+    font-size: 16px;
+    margin: 10px;
+}

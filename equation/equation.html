@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Квадатное уравнение</title>
+        <link rel="stylesheet" type="text/css" href="equationStyle.css">
+    </head>
+    <body>
+        <h2 align="center">
+            Решения квадратных уравнений
+        </h2>
+        <form action="index.php" method="POST">
+            <table align="center">
+                <tr>
+                    <td colspan="2">
+                        <div class="mainText"><b>Квадратное уравнение имеет вид : A * x^2 + B * x + C = 0</b></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="mainText">Введите первый коэффициент (A) :</div></td>
+                    <td><input type="text" name="A" maxlength="20"></td>
+                </tr>
+                <tr>
+                    <td><div class="mainText">Введите второй коэффициент (B) :</td>
+                    <td><input type="text" name="B" maxlength="20"></td>
+                </tr>
+                <tr>
+                    <td><div class="mainText">Введите третий коэффициент (C) :</td>
+                    <td><input type="text" name="C" maxlength="20"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="buttonCenter">
+                            <input type="submit" class="submitText" value="Решить уравнение">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div class="mainText">Ваше квадратное уравнение: </div></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
