@@ -1,11 +1,50 @@
-td
+body 
 {
-    font-family: Arial;
-    padding: 5px;
+    text-align: center;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 1000;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header
 {
-    text-align: center;   
+    background-color: rgb(194, 227, 255);
+    text-align: center;
 }
 
+table, table td
+{
+    border: 1px solid #bbb;
+    padding: 7px;
+    height: 45px;
+    font-family: Verdana;
+}
+
+.buttonBorder
+{
+    border: 0px solid #bbb;
+}
+
+button
+{
+    align-items: center;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 25px;
+    margin: 0 15px 15px 0;
+	outline: none;
+	border: 1px solid #fff;
+    height: 35px;
+	line-height: 35px;
+	border-radius: 50px;
+	font-size: 14px;
+	text-decoration: none;
+	background-color: #fff;
+    font-family: Verdana;
+    box-shadow: 0 5px 6px rgb(65 132 144 / 20%), 0 1px 3px rgb(0 0 0 / 15%);
+}
