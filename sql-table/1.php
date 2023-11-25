@@ -1,13 +1,13 @@
 <html>
     <head>
         <title>SQL таблица</title>
-        <link rel="stylesheet" type="text/css" href="./style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <form action="auth.php" method="POST"><br>
             <button type="submit">Авторизация пользователя</button>
         </form>
-        <table>
+        <table width=1000>
             <tr>
                 <td class="header">Номер товара</td>
                 <td class="header">Название <a href="1.php?sort=AZ">(А-Я)</a> <a href="1.php?sort=ZA">(Я-А)</a></td>
@@ -68,9 +68,9 @@
                 <td colspan=5 align="center">Выбрать товары с количеством
                     <br><br>
                     <form action="1.php" method="POST">
-                        от: <input type="number" name="startPrice">
+                        от: <input type="number" name="startPrice" min=0>
                         <br><br>
-                        до: <input type="number" name="endPrice">
+                        до: <input type="number" name="endPrice" min=0>
                         <br><br>
                         <button type="submit">Выбрать</button>
                     </form>

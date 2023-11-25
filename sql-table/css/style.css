@@ -6,7 +6,6 @@ body
 table
 {
     border-collapse: collapse;
-    width: 1000;
     margin-left: auto;
     margin-right: auto;
 }
@@ -23,11 +22,6 @@ table, table td
     padding: 7px;
     height: 45px;
     font-family: Verdana;
-}
-
-.buttonBorder
-{
-    border: 0px solid #bbb;
 }
 
 button
@@ -47,4 +41,9 @@ button
 	background-color: #fff;
     font-family: Verdana;
     box-shadow: 0 5px 6px rgb(65 132 144 / 20%), 0 1px 3px rgb(0 0 0 / 15%);
+}
+
+input 
+{
+    font-family: Verdana;
 }
