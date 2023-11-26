@@ -11,7 +11,15 @@
                 </tr>
                 <tr>
                     <td>Логин</td>
-                    <td><input type="text" name="login" required></td>
+                    <?php
+                    $inputLogin = NULL;
+                    if(isset($_POST["inputLogin"]))
+                    {
+                        $inputLogin = $_POST["inputLogin"];
+                        printf("<td><input type='text' name='login' value=$inputLogin required></td>");
+                    }
+                    else printf("<td><input type='text' name='login' required></td>");
+                    ?>
                 </tr>
                 <tr>
                     <td>Пароль</td>

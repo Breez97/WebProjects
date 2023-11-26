@@ -4,9 +4,28 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <form action="auth.php" method="POST"><br>
-            <button type="submit">Авторизация пользователя</button>
-        </form>
+        <?php
+            $descr = mysqli_connect("localhost", "root", "");
+            mysqli_select_db($descr, "products");
+            mysqli_set_charset($descr, "utf8");
+            $userID = NULL;
+            $userFilter = NULL;
+            if(isset($_POST['userIdAuth']))
+            {
+                $userID = $_POST['userIdAuth'];
+                $userFilter = " user_id = $userID";
+                $findUser = mysqli_query($descr, "SELECT * FROM users WHERE user_id=$userID");
+                while($array = mysqli_fetch_array($findUser)) $name = $array['name'];
+                printf("<h3>Выполнен вход: $name</h3>");
+            }
+            else
+            {
+                printf("
+                <form action='auth.php' method='POST'><br>
+                    <button type='submit'>Авторизация пользователя</button>
+                </form>");
+            }
+        ?>
         <table width=1000>
             <tr>
                 <td class="header">Номер товара</td>
@@ -28,28 +47,36 @@
                 
                     if(!empty($startPrice) && !empty($endPrice)) 
                     {
-                        $sortPriceLine = "WHERE price >= $startPrice AND price <= $endPrice";
+                        $sortPriceLine = "price >= $startPrice AND price <= $endPrice";
                     } 
                     elseif (!empty($startPrice)) 
                     {
-                        $sortPriceLine = "WHERE price >= $startPrice";
+                        $sortPriceLine = "price >= $startPrice";
                     } 
                     elseif (!empty($endPrice)) 
                     {
-                        $sortPriceLine = "WHERE price <= $endPrice";
+                        $sortPriceLine = "price <= $endPrice";
+                    }
+                }
+                
+                if($userFilter != NULL || $sortPriceLine != NULL)
+                {
+                    $sortWhere = NULL;
+                    if($userFilter != NULL && $sortPriceLine != NULL) $sortWhere = "WHERE" . $userFilter. " AND" . $sortPriceLine;
+                    else
+                    {
+                        if($userFilter != NULL) $sortWhere = "WHERE" . $userFilter;
+                        if($sortPriceLine != NULL) $sortWhere = "WHERE" . $sortPriceLine;
                     }
                 }
 
                 if(isset($_GET["sort"])) $sort = $_GET["sort"];
-                if($sort == "AZ") $sort_line = "ORDER BY title";
-                if($sort == "ZA") $sort_line = "ORDER BY title DESC";
-                if($sort == "up") $sort_line = "ORDER BY amount DESC";
-                if($sort == 'down') $sort_line = "ORDER BY amount ";
+                if($sort == "AZ") $sortLine = "ORDER BY title";
+                if($sort == "ZA") $sortLine = "ORDER BY title DESC";
+                if($sort == "up") $sortLine = "ORDER BY amount DESC";
+                if($sort == 'down') $sortLine = "ORDER BY amount ";
 
-                $descr = mysqli_connect("localhost", "root", "");
-                mysqli_select_db($descr, "products");
-                mysqli_set_charset($descr, "utf8");
-                $result = mysqli_query($descr, "SELECT * FROM products_table $sortPriceLine $sort_line");
+                $result = mysqli_query($descr, "SELECT * FROM products_table $sortWhere $sortPriceLine $sortLine");
 
                 $number = 1;
                 while($array = mysqli_fetch_array($result))
@@ -74,8 +101,8 @@
                         <br><br>
                         <button type="submit">Выбрать</button>
                     </form>
-                    <form action="1.php" method="GET"><br>
-                        <button type="submit">Сбросить фильтры</button>
+                    <form action="1.php" method="POST">
+                        <button type="submit">Выйти</button>
                     </form>
                 </td>
             </tr>
