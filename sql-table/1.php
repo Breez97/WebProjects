@@ -10,9 +10,10 @@
             mysqli_set_charset($descr, "utf8");
             $userID = NULL;
             $userFilter = NULL;
-            if(isset($_POST['userIdAuth']))
+            if(isset($_POST['userIdAuth']) || isset($_GET['userIdAuth']))
             {
-                $userID = $_POST['userIdAuth'];
+                if(isset($_POST['userIdAuth'])) $userID = $_POST['userIdAuth'];
+                if(isset($_GET['userIdAuth'])) $userID = $_GET['userIdAuth'];
                 $userFilter = " user_id = $userID";
                 $findUser = mysqli_query($descr, "SELECT * FROM users WHERE user_id=$userID");
                 while($array = mysqli_fetch_array($findUser)) $name = $array['name'];
@@ -36,7 +37,6 @@
             </tr>
 
             <?php
-                $userID = NULL;
                 $sortLine = NULL;
                 $sortPriceLine = NULL;
 
@@ -47,26 +47,26 @@
                 
                     if(!empty($startPrice) && !empty($endPrice)) 
                     {
-                        $sortPriceLine = "price >= $startPrice AND price <= $endPrice";
+                        $sortPriceLine = " price >= $startPrice AND price <= $endPrice";
                     } 
                     elseif (!empty($startPrice)) 
                     {
-                        $sortPriceLine = "price >= $startPrice";
+                        $sortPriceLine = " price >= $startPrice";
                     } 
                     elseif (!empty($endPrice)) 
                     {
-                        $sortPriceLine = "price <= $endPrice";
+                        $sortPriceLine = " price <= $endPrice";
                     }
                 }
                 
                 if($userFilter != NULL || $sortPriceLine != NULL)
                 {
                     $sortWhere = NULL;
-                    if($userFilter != NULL && $sortPriceLine != NULL) $sortWhere = "WHERE" . $userFilter. " AND" . $sortPriceLine;
+                    if($userFilter != NULL && $sortPriceLine != NULL) $sortWhere = "WHERE " . $userFilter. " AND" . $sortPriceLine;
                     else
                     {
-                        if($userFilter != NULL) $sortWhere = "WHERE" . $userFilter;
-                        if($sortPriceLine != NULL) $sortWhere = "WHERE" . $sortPriceLine;
+                        if($userFilter != NULL) $sortWhere = "WHERE " . $userFilter;
+                        if($sortPriceLine != NULL) $sortWhere = "WHERE " . $sortPriceLine;
                     }
                 }
 
@@ -76,7 +76,7 @@
                 if($sort == "up") $sortLine = "ORDER BY amount DESC";
                 if($sort == 'down') $sortLine = "ORDER BY amount ";
 
-                $result = mysqli_query($descr, "SELECT * FROM products_table $sortWhere $sortPriceLine $sortLine");
+                $result = mysqli_query($descr, "SELECT * FROM products_table $sortWhere $sortLine");
 
                 $number = 1;
                 while($array = mysqli_fetch_array($result))
@@ -94,7 +94,10 @@
             <tr>
                 <td colspan=5 align="center">Выбрать товары с количеством
                     <br><br>
-                    <form action="1.php" method="POST">
+                    <?php
+                        if($userID == NULL) printf("<form action='1.php' method='POST'>");
+                        else printf("<form action='1.php?userIdAuth=$userID' method='POST'>");
+                    ?>
                         от: <input type="number" name="startPrice" min=0>
                         <br><br>
                         до: <input type="number" name="endPrice" min=0>
