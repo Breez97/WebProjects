@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Добавление нового значения</title>
-        <link rel="stylesheet" type="text/css" href="./style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
     </head>
     <body>
         <form action="2.php" method="POST">

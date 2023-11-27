@@ -27,6 +27,7 @@ table, table td
     padding: 7px;
     height: 45px;
     font-family: Verdana;
+    text-align: center;
 }
 
 button
@@ -51,4 +52,15 @@ button
 input 
 {
     font-family: Verdana;
+}
+
+.buttons
+{
+    border: 0px solid #CCC;
+    border-collapse: collapse;
+}
+
+.noBorder
+{
+    border: none;
 }

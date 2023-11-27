@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Добавление записи</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <body>
         <?php
