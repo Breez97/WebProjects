@@ -32,7 +32,7 @@
             ?>
         </table>
         <br>
-        <table width=600 class='buttons' border=0>
+        <table width=600 class='buttons'>
             <tr>
                 <td align=center class='noBorder'>
                     <form action='add/addMain.php' method='POST'>
