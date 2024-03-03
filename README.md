@@ -37,7 +37,7 @@
 
 С помощью `JavaScript кода` собрать весь текст из элементов `div` в массив и вывести через `console.log()`.
 
-#### Домашнее задание: <a href="">Код</a>
+#### Домашнее задание: <a href="https://github.com/Breez97/WebProjects/tree/main/6-th%20Module/Hometasks/Hometask_Practice_1_2">Код</a>
 
 Есть несколько `div` элементов (3 штуки), каждый из которых содержит текст с тегом `p`.
 Под `div` расположена кнопка `input type="color"`.
