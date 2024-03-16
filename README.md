@@ -36,6 +36,8 @@
 `div` элемент с `id=elem2`.
 После добавления текста в `div` элемент, поле формы очищается.
 
+![](./misc/Practice_2/Practice_2.png)
+
 #### Задание 2: <a href="https://github.com/Breez97/WebProjects/tree/main/6-th%20Module/Practice_2/Task_2">Код</a>
 
 Создать на странице несколько `div` элементов. Поместить в них различный текст.
@@ -58,7 +60,7 @@
 
 ### Практика 3-4:
 
-#### Задание 1: <a href="">Код</a>
+#### Задание 1: <a href="https://github.com/Breez97/WebProjects/tree/main/6-th%20Module/Practice_3_4/Task_1">Код</a>
 
 На странице необходимо реализовать 3 `div` элемента, в каждый из них
 добавить: `div` элемент (пустой), поле для ввода текста и кнопку. Минимальная
@@ -85,7 +87,7 @@
 ![](./misc/Practice_3_4/Practice_3_Task_1_1.png)
 ![](./misc/Practice_3_4/Practice_3_Task_1_2.png)
 
-#### Задание 2: <a href="">Код</a>
+#### Задание 2: <a href="https://github.com/Breez97/WebProjects/tree/main/6-th%20Module/Practice_3_4/Task_2">Код</a>
 Необходимо реализовать 4 `JS` объекта, которые будут хранить
 информацию про товары. Структура объекта:
 ```
