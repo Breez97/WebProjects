@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variant 1</title>
+    <style>
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .choose-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            border: 1px solid black;
+            height: 100px;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+        input {
+            width: 30px;
+            height: 30px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+        .show-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+        .info-container {
+            width: 100%;
+            border: 1px solid black;
+            height: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="choose-container">
+            <div class="button-container">
+                Москва
+                <input type="text" value=0 readonly>
+            </div>
+            <div class="button-container">
+                Спорт
+                <input type="text" value=0 readonly>
+            </div>
+            <div class="button-container">
+                Музыка
+                <input type="text" value=0 readonly>
+            </div>
+            <div class="button-container">
+                История
+                <input type="text" value=0 readonly>
+            </div>
+        </div>
+        <div class="show-container">
+            <div class="info-container">Новости Москвы</div>
+            <div class="info-container">Новости спорта</div>
+            <div class="info-container">Новости музыки</div>
+            <div class="info-container">Новости истории</div>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            let allDivButtons = document.querySelectorAll('.button-container');
+            let allInfoContainers = document.querySelectorAll('.info-container');
+            let allInputFields = document.querySelectorAll('input');
+
+            for(let i = 0; i < allInfoContainers.length; i++) {
+                allInfoContainers[i].style.display = "none";
+            }
+            
+            for(let i = 0; i < allDivButtons.length; i++) {
+                let button = allDivButtons[i];
+                button.addEventListener('click', function() {
+                    for(let j = 0; j < allInfoContainers.length; j++) {
+                        if(i != j) {
+                            allInfoContainers[j].style.display = "none";
+                        }
+                        else {
+                            allInfoContainers[j].style.display = "block";
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
