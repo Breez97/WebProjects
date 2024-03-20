@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Task_2</title>
+        <style>
+            .main-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+                min-height: 200px;
+            }
+
+            .info-container {
+                width: 500px;
+                min-height: 100px;
+                background-color: antiquewhite;
+                text-align: center;
+                border: 1px solid black;
+                margin-top: 30px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            table, tr, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                width: 100px;
+                height: 40px;
+                text-align: center;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <table>
+                <tr>
+                    <td data-id="1">0</td>
+                    <td data-id="2">0</td>
+                    <td data-id="3">0</td>
+                </tr>
+                <tr>
+                    <td data-id="4">0</td>
+                    <td data-id="5">0</td>
+                    <td data-id="6">0</td>
+                </tr>
+                <tr>
+                    <td data-id="7">0</td>
+                    <td data-id="8">0</td>
+                    <td data-id="9">0</td>
+                </tr>
+            </table>
+            <input type="button" value="Добавить строку" class="button">
+            <div class="info-container"></div>
+        </div>
+
+        <script src="../../jquery.js"></script>
+        <script>
+            $(document).ready(function() {
+                
+                $('table').on('click', 'td', function() {
+                    let n = $(this).text();
+                    $(this).html(`<b>${parseInt(n) + 1}</b>`);
+                    let d = $(this).data('id');
+                    $('.info-container').append(`<p>Пользователь нажал на ячейку под номером ${d}</p>`);
+                });
+                
+                $('.button').click(function() {
+                    let numb = $('td').length;
+                    $("table").append(`
+                        <tr>
+                            <td data-id="${numb + 1}">0</td>
+                            <td data-id="${numb + 2}">0</td>
+                            <td data-id="${numb + 3}">0</td>
+                        </tr>`);
+                });
+
+                // $('td').click(function() {
+                //     let n = $(this).text();
+                //     $(this).html(`<b>${parseInt(n) + 1}</b>`);
+                //     let d = $(this).data('id');
+                //     $('.info-container').append(`<p>Пользователь на ячейку под номером ${d}</p>`);
+                // });
+
+
+                // events();
+
+                // $("button").click(function() {
+                //     $("table").append("<tr><td>0</td><td>0</td><td>0</td></tr>");
+                //     events();
+                // });
+
+                // function events() {
+                //     $("td").each(function(index) {
+                //         $(this).attr("data-id", index + 1);
+                //     });
+
+                //     $("td").click(function() {
+                //         $(this).text(parseInt($(this).text()) + 1);
+                //         $(".info-container").append("Пользователь на ячейку под номером " + $(this).attr("data-id") + "<br>");
+                //     });
+                // }
+
+            });
+        </script>
+    </body>
+</html>
