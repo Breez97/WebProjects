@@ -1,0 +1,53 @@
+.main-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.selection-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	border: 1px solid black;
+	width: 400px;
+	height: 100px;
+	margin-top: 150px;
+	background-color: antiquewhite;
+	border-radius: 20px;
+	padding: 20px;
+	padding-bottom: 40px;
+}
+
+.choose-district-container, .choose-area-container, .choose-street-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+p {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+}
+
+select {
+	width: 200px;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+	text-align: center;
+}
+
+.result {
+	margin-top: 30px;
+	padding: 20px;
+	min-width: 500px;
+	height: 16px;
+	border: 1px solid black;
+	border-radius: 20px;
+	background-color: antiquewhite;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 16px;
+	text-align: center;
+}
